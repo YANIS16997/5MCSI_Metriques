@@ -6,77 +6,72 @@
   <title>Commits - Statistiques</title>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
       padding: 20px;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
+      background-color: #ffffff;
       padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
     h1 {
       text-align: center;
       font-size: 2.5rem;
-      color: #ffffff;
+      color: #2c3e50;
       margin-bottom: 25px;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
     }
 
     #chart_div {
       height: 500px;
-      border-radius: 12px;
+      margin-top: 20px;
     }
 
     .info-panel {
-      background-color: rgba(255, 255, 255, 0.08);
-      border-left: 5px solid #00d2ff;
+      background-color: #e8f5e9;
+      border-left: 5px solid #4caf50;
       padding: 20px;
       border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin-bottom: 25px;
     }
 
     .info-panel h3 {
       font-size: 1.4rem;
-      color: #80eaff;
+      color: #2e7d32;
       margin-top: 0;
     }
 
     .info-panel p {
       font-size: 1rem;
-      color: #e0e0e0;
-      line-height: 1.6;
+      color: #4b4b4b;
     }
 
     .loading {
       text-align: center;
       font-size: 18px;
-      color: #aad8ff;
-      animation: pulse 1.5s infinite ease-in-out;
+      color: #888;
+      animation: fade 1.5s infinite ease-in-out;
     }
 
-    @keyframes pulse {
+    @keyframes fade {
       0%, 100% { opacity: 0.5; }
       50% { opacity: 1; }
     }
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
-
       #chart_div {
         height: 400px;
       }
@@ -85,11 +80,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Statistiques des Commits GitHub</h1>
+    <h1>📈 Activité des Commits</h1>
 
     <div class="info-panel">
-      <h3>Visualisation interactive</h3>
-      <p>Ce graphique représente la fréquence des commits effectués par minute. Les couleurs vibrantes vous aident à visualiser l'activité du projet de manière intuitive.</p>
+      <h3>À propos</h3>
+      <p>Ce graphique montre combien de commits ont été effectués minute par minute sur le projet GitHub. Chaque barre correspond à une minute donnée.</p>
     </div>
 
     <div id="loading" class="loading">Chargement des données...</div>
@@ -122,25 +117,25 @@
       const dataTable = google.visualization.arrayToDataTable(chartData);
 
       const options = {
-        backgroundColor: 'transparent',
-        colors: ['#00d2ff'],
+        backgroundColor: '#ffffff',
+        colors: ['#4caf50'],
         title: 'Commits par Minute',
         titleTextStyle: {
-          color: '#ffffff',
+          color: '#2c3e50',
           fontSize: 20,
           bold: true
         },
         hAxis: {
           title: 'Minute',
-          textStyle: { color: '#aad8ff' },
-          titleTextStyle: { color: '#aad8ff' },
-          gridlines: { color: '#2e2e50' }
+          textStyle: { color: '#444' },
+          titleTextStyle: { color: '#444' },
+          gridlines: { color: '#f0f0f0' }
         },
         vAxis: {
-          title: 'Nombre de Commits',
-          textStyle: { color: '#aad8ff' },
-          titleTextStyle: { color: '#aad8ff' },
-          gridlines: { color: '#2e2e50' }
+          title: 'Commits',
+          textStyle: { color: '#444' },
+          titleTextStyle: { color: '#444' },
+          gridlines: { color: '#f0f0f0' }
         },
         chartArea: { width: '80%', height: '70%' },
         legend: { position: 'none' },
@@ -148,7 +143,7 @@
         animation: {
           duration: 1000,
           startup: true,
-          easing: 'inAndOut'
+          easing: 'out'
         }
       };
 
@@ -160,5 +155,4 @@
   </script>
 </body>
 </html>
-
 
