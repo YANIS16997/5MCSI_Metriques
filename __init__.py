@@ -34,14 +34,15 @@ def meteo():
         temp_day_value = list_element.get('main', {}).get('temp') - 273.15 # Conversion de Kelvin en °c 
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
-  @app.route('/commits/')
+  
+@app.route('/commits/')
 def commits_graph():
     return render_template("commits.html")
 
 @app.route('/commits-data/')
 def get_commits_data():
     # Récupération des commits depuis l'API GitHub
-    response = urlopen('https://api.github.com/repos/SofianeKhedim/5MCSI_Metriques/commits')
+    response = urlopen('https://api.github.com/repos/yanismanser/5MCSI_Metriques/commits')
     raw_content = response.read()
     commits_data = json.loads(raw_content.decode('utf-8'))
     
